@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function(){    //Aqui no se uso class name ni funcion render() porque esta es una function component
+export default function(props){    //Aqui no se uso class name ni render() porque esta es una function component
     return (
         <div>
-            <h3>Portfolio Item</h3>
+            <h3>{props.title}</h3>
+            <h4>{props.url}</h4>
         </div>
     )
 }
