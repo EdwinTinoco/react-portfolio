@@ -1,25 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
-export default function(props){    //Aqui no se uso class name ni render() porque esta es una function component    
-    const {id, description, thumb_image_url, logo_url} = props.item;
+export default class PortfolioItem extends Component{    //Aqui no se uso class name ni render() porque esta es una function component    
+    constructor(props){
+        super(props);
 
-    return (        
-        <div className="portfolio-item-wrapper">    
-            <div
-                className="portfolio-img-background"
-                style={{
-                    backgroundImage: "url(" + thumb_image_url + ")"
-                }}
-            />  
+        this.state = {
+            portfolioItemClass: ""
+        };
+    }
 
-            <div className="img-text-wrapper">
-                <div className="logo-wrapper">
-                    <img src={logo_url} />
+    handleMouseEnter(){
+        this.setState({portfolioItemClass: 'image-blur'})
+    }
+
+    handleMouseLeave(){
+        this.setState({portfolioItemClass: ''})
+    }
+
+    render(){    
+        const {id, description, thumb_image_url, logo_url} = this.props.item;
+
+        return (        
+            <div className="portfolio-item-wrapper"
+                onMouseEnter={() => this.handleMouseEnter()}
+                onMouseLeave={() => this.handleMouseLeave()}            
+            >    
+                <div
+                    className={"portfolio-img-background " + this.state.portfolioItemClass}
+                    style={{
+                        backgroundImage: "url(" + thumb_image_url + ")"
+                    }}
+                />  
+
+                <div className="img-text-wrapper">
+                    <div className="logo-wrapper">
+                        <img src={logo_url} />
+                    </div>
+
+                    <div className="subtitle">{description}</div>
                 </div>
-
-                <div className="subtitle">{description}</div>
-            </div>
-        </div>        
-    );
+            </div>        
+        );
+    }
 }
