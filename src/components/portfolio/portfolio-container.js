@@ -40,9 +40,14 @@ export default class PortfolioContainer extends Component{   // Esta es una clas
           });  
     }
 
-    portfolioItems(){
+    portfolioItems(){       
         return this.state.data.map(item => {
-            return <PortfolioItem key={item.id} name={item.name} url={item.url} slug={item.id}/>;
+            return (
+                <PortfolioItem 
+                    key={item.id} 
+                    item={item}
+                />
+            );
         });
     }  
 
