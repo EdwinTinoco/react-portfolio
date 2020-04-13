@@ -11,7 +11,7 @@ export default class NavigationComponent extends Component {
             <div className="nav-wrapper"> 
                 <div className="left-side">    
                     <div className="nav-link-wrapper"> 
-                        <NavLink exact to="/">Home</NavLink>
+                        <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
                     </div>
 
                     <div className="nav-link-wrapper"> 
@@ -26,7 +26,7 @@ export default class NavigationComponent extends Component {
                         <NavLink to="/blog" activeClassName="nav-link-active">Blog</NavLink>     
                     </div>       
                 </div> 
-                
+
                 <div className="right-side">
                     Edwin Jared Tinoco 
                 </div>
