@@ -18,6 +18,7 @@ export default class App extends Component {
   render() {    
     return (
       <div className='container'>
+
         <Router>
           <div>
             <NavigationContainer />
@@ -36,6 +37,7 @@ export default class App extends Component {
             </Switch>
           </div>
         </Router>
+        
       </div>
     );
   }
