@@ -17,7 +17,10 @@ export default class PortfolioForm extends Component {
       url: "",
       thumb_image: "",
       banner_image: "",
-      logo: ""
+      logo: "",
+      editMode: false,
+      apiUrl: "https://edwintinoco.devcamp.space/portfolio/portfolio_items",
+      apiAction: "post"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,6 +35,36 @@ export default class PortfolioForm extends Component {
     this.bannerRef = React.createRef();
     this.logoRef = React.createRef();
     
+  }
+
+  componentDidUpdate() {
+    if (Object.keys(this.props.portfolioToEdit).length > 0) {
+      const {
+        id,
+        name,
+        description,
+        category,
+        position,
+        url,
+        thumb_image_url,
+        banner_image_url,
+        logo_url
+      } = this.props.portfolioToEdit;
+
+      this.props.clearPortfolioToEdit();
+
+      this.setState({
+        id: id,
+        name: name || "",
+        description: description || "",
+        category: category || "eCommerce",
+        position: position || "",
+        url: url || "",
+        editMode: true,
+        apiUrl: `https://edwintinoco.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiAction: "patch"
+      });
+    }
   }
 
   handleThumbDrop() {
@@ -97,15 +130,19 @@ export default class PortfolioForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    axios({
+      method: this.state.apiAction,
+      url: this.state.apiUrl,
+      data: this.buildForm(),
+      withCredentials: true
+    })
+    .then(response => {
+      if (this.state.editMode){
+        this.props.handleEditFormSubmission();
+      }else {
+        this.props.handleNewFormSubmission(response.data.portfolio_item);
+      }
 
-    axios.post(
-      "https://edwintinoco.devcamp.space/portfolio/portfolio_items",
-      this.buildForm(),
-      { withCredentials: true}
-    ).then(response => {
-      this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
-      console.log('response', response);  
-      
       this.setState({
         name: "",
         description: "",
@@ -114,7 +151,10 @@ export default class PortfolioForm extends Component {
         url: "",
         thumb_image: "",
         banner_image: "",
-        logo: ""
+        logo: "",
+        editMode: false,
+        apiUrl: "https://edwintinoco.devcamp.space/portfolio/portfolio_items",
+        apiAction: "post"
       });
 
       [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
