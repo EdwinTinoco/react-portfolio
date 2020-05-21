@@ -16,12 +16,27 @@ export default function () {
             />
             <div className="right-column">
                 <div className="contact-bullet-points">
+
+                    <div className="bullet-point-group">
+                        <div className="icon">
+                            <FontAwesomeIcon icon="link" />
+                        </div>
+
+                        <a href="https://github.com/EdwinTinoco" className="text">Github</a>
+                    </div>
+                    <div className="bullet-point-group">
+                        <div className="icon">
+                            <FontAwesomeIcon icon="link" />
+                        </div>
+
+                        <a href="https://www.linkedin.com/in/edwin-jared-lopez-tinoco-3684391a5/" className="text">LinkedIn</a>
+                    </div>
                     <div className="bullet-point-group">
                         <div className="icon">
                             <FontAwesomeIcon icon="phone" />
                         </div>
 
-                        <div className="text">555-555-5555</div>
+                        <div className="text">801-755-7608</div>
                     </div>
 
                     <div className="bullet-point-group">
@@ -29,7 +44,7 @@ export default function () {
                             <FontAwesomeIcon icon="envelope" />
                         </div>
 
-                        <div className="text">edwin@example.com</div>
+                        <div className="text">jaredlotic@gmail.com</div>
                     </div>
 
                     <div className="bullet-point-group">

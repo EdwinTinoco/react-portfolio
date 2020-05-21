@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePicture from "../../../static/assets/images/bio/edwin_driving.jpg"
+import profilePicture from "../../../static/assets/images/bio/edwin-linkedin.jpg"
 
 export default function () {
     return (
@@ -14,23 +14,19 @@ export default function () {
 
             />
             <div className="right-column">
-                Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis
-                dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.
-                Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget
-                risus varius blandit sit amet non magna. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida
-                at eget metus. Donec sed odio dui. Cras mattis consectetur purus sit
-                amet fermentum. Etiam porta sem malesuada magna mollis euismod. Nulla
-                vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque
-                ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non
-                commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
-                elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis
-                risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis
-                euismod semper.
+                <h1>About Me</h1>
+                Specialist in analysis, design and development of software, web applications and client / server applications.
+                Database design and administration. I am a person with a strong sense of commitment, a high level of analysis,
+                I make good interpersonal relationships, teamwork and results-oriented.<br></br>
+                <br></br>
+                In my experience as a software engineer, I have had the opportunity to work on projects where I have developed
+                all the part of the front end, from the collection and analysis of information, presentation of the interface,
+                UI / UX, and I have also developed all the back end logic, server connection, database design, API's development.<br></br>
+                <br></br>
+                One of my sayings is, if you want to develop a quality project, your database must be of quality,
+                that is, the tables, fields, keys, views, stored procedures, etc., you must develop a very well designed and
+                structure of your database, since in this way through your application you can consult and make the data crud
+                easier with the least possible problem.
             </div>
         </div>
     )
